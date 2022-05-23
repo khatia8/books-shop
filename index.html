@@ -8,11 +8,11 @@
     <title>Books Shop</title>
   </head>
   <body>
-    <div class="delivery-form">
-      <form class="form-order">
+    <div id="order">
+      <form>
         <fieldset>
           <legend>Bag</legend>
-          <div class="field">
+          <div>
             <label for="name">Name</label>
             <input
               type="text"
@@ -25,7 +25,7 @@
                 event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)"
             />
           </div>
-          <div class="field">
+          <div>
             <label for="surname">Surname</label>
             <input
               type="text"
@@ -38,7 +38,7 @@
                 event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)"
             />
           </div>
-          <div class="field">
+          <div>
             <label for="date">Delivery Date</label>
             <input
               type="date"
@@ -48,7 +48,7 @@
               name="date"
             />
           </div>
-          <div class="field">
+          <div>
             <label for="street">Street</label>
             <input
               type="text"
@@ -59,7 +59,7 @@
               minlength="5"
             />
           </div>
-          <div class="field">
+          <div>
             <label for="house">House</label>
             <input
               type="text"
@@ -70,7 +70,7 @@
               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
             />
           </div>
-          <div class="field">
+          <div>
             <label for="flat">Flat</label>
             <input
               type="text"
@@ -81,30 +81,18 @@
             />
           </div>
         </fieldset>
-        <fieldset class="payment-input">
+        <fieldset>
           <legend>Choose the payment type</legend>
-          <div class="payment-wrap">
+          <div>
             <label for="cash" class="cash">Cash</label>
-            <input
-              type="radio"
-              class="payment-type"
-              name="cash or card"
-              id="cash"
-              value="cash"
-            />
+            <input type="radio" name="cash or card" id="cash" value="cash" />
           </div>
-          <div class="payment-wrap">
+          <div>
             <label for="card" class="card">Card</label>
-            <input
-              type="radio"
-              class="payment-type"
-              name="cash or card"
-              id="card"
-              value="card"
-            />
+            <input type="radio" name="cash or card" id="card" value="card" />
           </div>
         </fieldset>
-        <fieldset class="gift-wrap">
+        <fieldset>
           <legend>Choose 2 gifts</legend>
           <label for="pack">Pack as a gift</label>
           <input
@@ -113,7 +101,7 @@
             id="pack-gift"
             value="Pack as a gift"
             name="checkboxi"
-            onclick="return checkboxFunc()"
+            onclick="return onCheckboxClick()"
           />
           <label for="postcard">Add postcard</label>
           <input
@@ -122,7 +110,7 @@
             id="postcard"
             value="Add postcard"
             name="checkboxi"
-            onclick="return checkboxFunc()"
+            onclick="return onCheckboxClick()"
           />
           <label for="discount">Provide 2% discount to the next time</label>
           <input
@@ -131,7 +119,7 @@
             id="discount"
             value="Provide 2% discount to the next time"
             name="checkboxi"
-            onclick="return checkboxFunc()"
+            onclick="return onCheckboxClick()"
           />
           <label for="pen-or-pencil">Branded pen or pencil</label>
           <input
@@ -140,12 +128,10 @@
             id="pen-or-pencil"
             value="Branded pen or pencil"
             name="checkboxi"
-            onclick="return checkboxFunc()"
+            onclick="return onCheckboxClick()"
           />
         </fieldset>
-        <div class="button-wrap">
-          <input type="submit" id="register" value="Confirm" />
-        </div>
+        <input type="submit" id="register" value="Confirm" />
       </form>
     </div>
     <script src="./script.js"></script>

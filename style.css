@@ -1,3 +1,12 @@
+.book-container {
+  display: flex;
+  margin: 10px;
+}
+
+.book-container > div {
+  padding: 50px;
+}
+
 .modal-wrapper {
   display: none;
   z-index: 1;
@@ -10,10 +19,36 @@
   overflow: auto;
 }
 
+.modal-content {
+  display: flex;
+  margin: 50px;
+  max-width: 900px;
+  background: #fafafa;
+  position: relative;
+}
+
+.modal-content > div {
+  padding: 50px;
+}
+
 #close {
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 30px;
+}
+
+.cart-item {
+  display: none;
+  align-items: center;
+  justify-content: space-around;
+  margin: 10px;
+}
+
+.remove {
   cursor: pointer;
 }
 
-.d-none {
+#order {
   display: none;
 }
