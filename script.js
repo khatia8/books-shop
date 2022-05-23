@@ -1,3 +1,7 @@
+const cartContainer = document.createElement('div');
+cartContainer.classList.add('cart-container');
+document.getElementsByTagName('body')[0].prepend(cartContainer);
+
 const container = document.createElement('div');
 container.classList.add('container');
 document.getElementsByTagName('body')[0].prepend(container);
@@ -31,6 +35,8 @@ const generateBookItem = (wrapper, item) => {
   const addCartBtn = document.createElement('button');
   addCartBtn.textContent = 'add To Cart';
   wrapper.appendChild(addCartBtn);
+
+  generateCartItem(cartContainer, item, addCartBtn);
 };
 
 const generateModal = (wrapper, item) => {
@@ -79,12 +85,36 @@ const buttonClicksListener = (wrapper) => {
   };
 };
 
+const generateCartItem = (wrapper, item, addBtn) => {
+  var cartItem = document.createElement('div');
+  cartItem.className = 'd-none';
+  wrapper.appendChild(cartItem);
+
+  var img = document.createElement('img');
+  img.src = item.imageLink;
+  cartItem.appendChild(img);
+
+  var cartPrice = document.createElement('h2');
+  cartPrice.textContent = `$${item.price}`;
+  cartItem.appendChild(cartPrice);
+
+  var removeBtn = document.createElement('p');
+  removeBtn.textContent = 'X';
+  cartItem.appendChild(removeBtn);
+
+  addBtn.onclick = function () {
+    cartItem.style.display = 'block';
+  };
+  removeBtn.onclick = function () {
+    cartItem.style.display = 'none';
+  };
+};
+
 fetch('./books.json')
   .then((response) => {
     return response.json();
   })
   .then((data) => {
-    console.log(data);
     data.forEach((element) => {
       const bookWrapper = document.createElement('div');
       bookWrapper.classList.add('container');
